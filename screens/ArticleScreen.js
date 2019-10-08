@@ -4,10 +4,17 @@ import { View, Text, StyleSheet } from "react-native";
 const ArticleScreen = props => {
   return (
     <View style={styles.screen}>
-      <Text style={styles.textTest}>The Topics Articles Screen!</Text>
+      <Text style={styles.textTest}>The Article Screen!</Text>
     </View>
   );
 };
+
+// ArticleScreen.navigationOptions = {
+//   headerTitle: "Article Title",
+//   headerTitleStyle: {
+//     fontFamily: "rough-typewriter-itl-bold"
+//   }
+// };
 
 const styles = StyleSheet.create({
   screen: {

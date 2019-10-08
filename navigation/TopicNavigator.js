@@ -1,4 +1,5 @@
-import { Platform } from "react-native";
+import React from "react";
+import { Platform, Text, View } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 
@@ -10,7 +11,10 @@ import TopicsArticlesScreen from "../screens/TopicsArticlesScreen";
 const TopicNavigator = createStackNavigator(
   {
     Topics: {
-      screen: TopicsScreen
+      screen: TopicsScreen,
+      navigationOptions: {
+        title: "Topics"
+      }
     },
     TopicsArticles: {
       screen: TopicsArticlesScreen
@@ -25,7 +29,13 @@ const TopicNavigator = createStackNavigator(
       headerStyle: {
         backgroundColor: Platform.OS === "android" ? Colors.mainColor : ""
       },
-      headerTintColor: Platform.OS === "android" ? "white" : Colors.mainColor
+      headerTintColor: Platform.OS === "android" ? "white" : Colors.mainColor,
+      headerTitleStyle: {
+        fontFamily: "rough-typewriter-itl-bold",
+        fontWeight: "200",
+        fontSize: 40,
+        alignContent: "center"
+      }
     }
   }
 );

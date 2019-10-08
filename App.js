@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
+import TopicNavigator from "./navigation/TopicNavigator";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -23,11 +24,7 @@ export default function App() {
       />
     );
   }
-  return (
-    <View style={styles.container}>
-      <Text style={styles.textTest}>ScholarLess</Text>
-    </View>
-  );
+  return <TopicNavigator />;
 }
 
 const styles = StyleSheet.create({

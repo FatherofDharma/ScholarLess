@@ -13,15 +13,15 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "packagerOpts": {
+      "assetExts": ["ttf", "otf"]
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
-    },
-    "packagerOpts": {
-      "assetExts": ["ttf", "otf"]
     }
   }
 }

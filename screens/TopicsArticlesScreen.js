@@ -1,10 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
+import { TOPICS } from "../data/fake-data";
+
 const TopicsArticlesScreen = props => {
+  const topicId = props.navigation.getParam("topicId");
+
+  const targetTopic = TOPICS.find(topic => topic.id === topicId);
+
   return (
     <View style={styles.screen}>
       <Text style={styles.textTest}>The Topics Articles Screen!</Text>
+      <Text style={styles.textTest}>{targetTopic.topicName}</Text>
       <Button
         title="Go to a specific Article"
         onPress={() => {

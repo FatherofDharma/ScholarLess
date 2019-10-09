@@ -1,17 +1,41 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity
+} from "react-native";
+
+import { TOPICS } from "../data/fake-data";
 
 const TopicsScreen = props => {
-  return (
-    <View style={styles.screen}>
-      <Text style={styles.textTest}>The Topics Screen!</Text>
-      <Button
-        title="Go to Articles in this Topic"
+  const renderTopicGridItem = itemData => {
+    return (
+      <TouchableOpacity
+        style={styles.topicGridItem}
         onPress={() => {
-          props.navigation.navigate({ routeName: "TopicsArticles" });
+          props.navigation.navigate({
+            routeName: "TopicsArticles",
+            params: {
+              topicId: itemData.item.id
+            }
+          });
         }}
-      />
-    </View>
+      >
+        <View>
+          <Text style={styles.textTest}>{itemData.item.topicName}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+  return (
+    <FlatList
+      data={TOPICS}
+      keyExtractor={(item, index) => item.id}
+      renderItem={renderTopicGridItem}
+      numColumns={2}
+    />
   );
 };
 
@@ -26,8 +50,13 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   textTest: {
-    fontFamily: "rough-typewriter-itl-bold",
+    fontFamily: "rough-typewriter",
     fontSize: 20
+  },
+  topicGridItem: {
+    flex: 1,
+    margin: 15,
+    height: 150
   }
 });
 

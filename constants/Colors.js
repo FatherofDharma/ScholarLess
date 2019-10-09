@@ -3,4 +3,7 @@ export default {
   secondaryColor: "#83B4CC"
 };
 
-// mainColor: "#2B6380",
+//addition codes that may be used later
+//#A3E0FF - sky blue
+//#57C7FF - teal
+//#527080 - greyish blue

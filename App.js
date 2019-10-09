@@ -4,6 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import TopicNavigator from "./navigation/TopicNavigator";
+import { useScreens } from "react-native-screens";
+
+useScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({

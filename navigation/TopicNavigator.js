@@ -34,6 +34,10 @@ const TopicNavigator = createStackNavigator(
   },
   {
     mode: "modal",
+    headerBackTitleVisible: false,
+    headerLayoutPreset: "center",
+    headerMode: "float",
+    headerTransitionPreset: "fade-in-place",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: Platform.OS === "android" ? Colors.mainColor : ""

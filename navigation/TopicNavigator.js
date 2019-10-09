@@ -17,10 +17,7 @@ const TopicNavigator = createStackNavigator(
       }
     },
     TopicsArticles: {
-      screen: TopicsArticlesScreen,
-      navigationOptions: {
-        title: "Topics-Articles"
-      }
+      screen: TopicsArticlesScreen
     },
     Article: {
       screen: ArticleScreen,
@@ -37,6 +34,10 @@ const TopicNavigator = createStackNavigator(
   },
   {
     mode: "modal",
+    headerBackTitleVisible: false,
+    headerLayoutPreset: "center",
+    headerMode: "float",
+    headerTransitionPreset: "fade-in-place",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: Platform.OS === "android" ? Colors.mainColor : ""

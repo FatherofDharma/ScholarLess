@@ -1,6 +1,7 @@
 export default {
   mainColor: "#2B6380",
-  secondaryColor: "#83B4CC"
+  secondaryColor: "#83B4CC",
+  backgroundColor: "#527080"
 };
 
 //addition codes that may be used later

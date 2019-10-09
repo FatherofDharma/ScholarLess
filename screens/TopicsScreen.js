@@ -4,11 +4,12 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  TouchableOpacity
+  ImageBackground
 } from "react-native";
 
 import { TOPICS } from "../data/fake-data";
 import TopicGridComponent from "../components/TopicGridComponent";
+import Colors from "../constants/Colors";
 
 const TopicsScreen = props => {
   const renderTopicGridItem = itemData => {
@@ -29,12 +30,17 @@ const TopicsScreen = props => {
   };
 
   return (
-    <FlatList
-      data={TOPICS}
-      keyExtractor={(item, index) => item.id}
-      renderItem={renderTopicGridItem}
-      numColumns={2}
-    />
+    <ImageBackground
+      source={require("../assets/old-writing-background.jpg")}
+      style={{ width: "100%", height: "100%" }}
+    >
+      <FlatList
+        data={TOPICS}
+        keyExtractor={(item, index) => item.id}
+        renderItem={renderTopicGridItem}
+        numColumns={2}
+      />
+    </ImageBackground>
   );
 };
 
@@ -47,6 +53,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  listBackground: {
+    backgroundColor: Colors.backgroundColor
   }
 });
 

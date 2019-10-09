@@ -17,10 +17,7 @@ const TopicNavigator = createStackNavigator(
       }
     },
     TopicsArticles: {
-      screen: TopicsArticlesScreen,
-      navigationOptions: {
-        title: "Topics-Articles"
-      }
+      screen: TopicsArticlesScreen
     },
     Article: {
       screen: ArticleScreen,

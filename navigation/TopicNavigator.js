@@ -1,5 +1,5 @@
 import React from "react";
-import { Platform, Text, View } from "react-native";
+import { Platform } from "react-native";
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 
@@ -7,6 +7,7 @@ import ArticleScreen from "../screens/ArticleScreen";
 import Colors from "../constants/Colors";
 import TopicsScreen from "../screens/TopicsScreen";
 import TopicsArticlesScreen from "../screens/TopicsArticlesScreen";
+import PDFScreen from "../screens/PDFScreen";
 
 const TopicNavigator = createStackNavigator(
   {
@@ -17,10 +18,22 @@ const TopicNavigator = createStackNavigator(
       }
     },
     TopicsArticles: {
-      screen: TopicsArticlesScreen
+      screen: TopicsArticlesScreen,
+      navigationOptions: {
+        title: "Topic-related Articles"
+      }
     },
     Article: {
-      screen: ArticleScreen
+      screen: ArticleScreen,
+      navigationOptions: {
+        title: "Articles"
+      }
+    },
+    PDF: {
+      screen: PDFScreen,
+      navigationOptions: {
+        title: "Pdf View"
+      }
     }
   },
   {

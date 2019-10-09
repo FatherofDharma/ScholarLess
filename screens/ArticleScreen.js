@@ -1,20 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 
 const ArticleScreen = props => {
   return (
     <View style={styles.screen}>
       <Text style={styles.textTest}>The Article Screen!</Text>
+      <Button
+        title="View the PDF"
+        onPress={() => {
+          props.navigation.navigate({ routeName: "PDF" });
+        }}
+      />
     </View>
   );
 };
-
-// ArticleScreen.navigationOptions = {
-//   headerTitle: "Article Title",
-//   headerTitleStyle: {
-//     fontFamily: "rough-typewriter-itl-bold"
-//   }
-// };
 
 const styles = StyleSheet.create({
   screen: {

@@ -8,13 +8,15 @@ import {
 } from "react-native";
 
 import { TOPICS } from "../data/fake-data";
+import TopicGridComponent from "../components/TopicGridComponent";
 
 const TopicsScreen = props => {
   const renderTopicGridItem = itemData => {
     return (
-      <TouchableOpacity
-        style={styles.topicGridItem}
-        onPress={() => {
+      <TopicGridComponent
+        topicName={itemData.item.topicName}
+        color={itemData.item.color}
+        onTarget={() => {
           props.navigation.navigate({
             routeName: "TopicsArticles",
             params: {
@@ -22,13 +24,10 @@ const TopicsScreen = props => {
             }
           });
         }}
-      >
-        <View>
-          <Text style={styles.textTest}>{itemData.item.topicName}</Text>
-        </View>
-      </TouchableOpacity>
+      />
     );
   };
+
   return (
     <FlatList
       data={TOPICS}
@@ -48,15 +47,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
-  },
-  textTest: {
-    fontFamily: "rough-typewriter",
-    fontSize: 20
-  },
-  topicGridItem: {
-    flex: 1,
-    margin: 15,
-    height: 150
   }
 });
 

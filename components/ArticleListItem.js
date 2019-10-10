@@ -22,7 +22,7 @@ const ArticleListItem = props => {
       <TouchableComponent onPress={props.onTargetArticle}>
         <View>
           <View style={styles.articleRow}>
-            <Text>{props.title}</Text>
+            <Text style={styles.titleText}>{props.title}</Text>
           </View>
           <View style={styles.articleRow} />
         </View>
@@ -42,6 +42,10 @@ const styles = StyleSheet.create({
   },
   articleRow: {
     flexDirection: "row"
+  },
+  titleText: {
+    color: "white",
+    fontFamily: "rough-typewriter"
   }
 });
 

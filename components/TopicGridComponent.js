@@ -10,22 +10,35 @@ import {
 import Colors from "../constants/Colors";
 
 const TopicGridComponent = props => {
+  let TouchableComponent = TouchableOpacity;
+
+  if (Platform.OS === "android" && Platform.Version >= 21) {
+    TouchableComponent = TouchableNativeFeedback;
+  }
   return (
-    <TouchableOpacity style={styles.topicGridItem} onPress={props.onTarget}>
-      <View
-        style={{
-          ...styles.topicContainer,
-          ...{ backgroundColor: props.color }
-        }}
+    <View style={styles.topicGridItem}>
+      <TouchableComponent
+        style={styles.touchableComponent}
+        onPress={props.onTarget}
       >
-        <Text style={styles.textTest}>{props.topicName}</Text>
-      </View>
-    </TouchableOpacity>
+        <View
+          style={{
+            ...styles.topicContainer,
+            ...{ backgroundColor: props.color }
+          }}
+        >
+          <Text style={styles.textTopic}>{props.topicName}</Text>
+        </View>
+      </TouchableComponent>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  textTest: {
+  touchableComponent: {
+    flex: 1
+  },
+  textTopic: {
     fontFamily: "rough-typewriter",
     fontSize: 20,
     color: Colors.mainColor
@@ -33,7 +46,9 @@ const styles = StyleSheet.create({
   topicGridItem: {
     flex: 1,
     margin: 15,
-    height: 150
+    height: 150,
+    borderRadius: 20,
+    overflow: "hidden"
   },
   topicContainer: {
     flex: 1,

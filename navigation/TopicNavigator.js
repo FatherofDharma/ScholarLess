@@ -33,7 +33,7 @@ const TopicNavigator = createStackNavigator(
     }
   },
   {
-    mode: "modal",
+    // mode: "modal",
     headerBackTitleVisible: false,
     headerLayoutPreset: "center",
     headerMode: "float",

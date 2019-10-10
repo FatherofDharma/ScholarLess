@@ -1,23 +1,31 @@
 import React from "react";
 import { Platform } from "react-native";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, StyleSheet, Text, FlatList } from "react-native";
 
 import Colors from "../constants/Colors";
-import { TOPICS } from "../data/fake-data";
+import { ARTICLES, TOPICS } from "../data/fake-data";
 
 const TopicsArticlesScreen = props => {
+  const renderArticleItem = itemData => {
+    return (
+      <View>
+        <Text>{itemData.item.title}</Text>
+      </View>
+    );
+  };
+
   const localTopicId = props.navigation.getParam("topicId");
 
-  const targetTopic = TOPICS.find(topic => topic.id === localTopicId);
+  const showArticles = ARTICLES.filter(
+    article => article.topicId.indexOf(localTopicId) >= 0
+  );
 
   return (
     <View style={styles.screen}>
-      <Text style={styles.textTest}>{targetTopic.topicName}</Text>
-      <Button
-        title="Go to a specific Article"
-        onPress={() => {
-          props.navigation.navigate({ routeName: "Article" });
-        }}
+      <FlatList
+        data={showArticles}
+        keyExtractor={(item, index) => item.id}
+        renderItem={renderArticleItem}
       />
     </View>
   );

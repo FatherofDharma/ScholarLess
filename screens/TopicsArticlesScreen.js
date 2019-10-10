@@ -1,16 +1,21 @@
 import React from "react";
 import { Platform } from "react-native";
-import { View, StyleSheet, Text, FlatList } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  FlatList,
+  ImageBackground
+} from "react-native";
 
 import Colors from "../constants/Colors";
 import { ARTICLES, TOPICS } from "../data/fake-data";
+import ArticleListItem from "../components/ArticleListItem";
 
 const TopicsArticlesScreen = props => {
   const renderArticleItem = itemData => {
     return (
-      <View>
-        <Text>{itemData.item.title}</Text>
-      </View>
+      <ArticleListItem title={itemData.item.title} onTargetArticle={() => {}} />
     );
   };
 
@@ -22,11 +27,17 @@ const TopicsArticlesScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <FlatList
-        data={showArticles}
-        keyExtractor={(item, index) => item.id}
-        renderItem={renderArticleItem}
-      />
+      <ImageBackground
+        source={require("../assets/old-writing-background.jpg")}
+        style={styles.imageBackground}
+      >
+        <FlatList
+          data={showArticles}
+          keyExtractor={(item, index) => item.id}
+          renderItem={renderArticleItem}
+          style={styles.list}
+        />
+      </ImageBackground>
     </View>
   );
 };
@@ -52,6 +63,13 @@ TopicsArticlesScreen.navigationOptions = navigationData => {
 };
 
 const styles = StyleSheet.create({
+  imageBackground: {
+    width: "100%",
+    height: "100%"
+  },
+  list: {
+    width: "100%"
+  },
   screen: {
     flex: 1,
     justifyContent: "center",

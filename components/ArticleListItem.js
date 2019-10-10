@@ -21,10 +21,12 @@ const ArticleListItem = props => {
     <View style={styles.articleItem}>
       <TouchableComponent onPress={props.onTargetArticle}>
         <View>
-          <View style={styles.articleRow}>
-            <Text style={styles.titleText}>{props.title}</Text>
+          <View style={{ ...styles.articleRow, ...styles.articleHeader }}>
+            <Text style={styles.text}>{props.title}</Text>
           </View>
-          <View style={styles.articleRow} />
+          <View style={{ ...styles.articleRow, ...styles.ArticleDescription }}>
+            <Text style={styles.text}>{props.author}</Text>
+          </View>
         </View>
       </TouchableComponent>
     </View>
@@ -32,6 +34,12 @@ const ArticleListItem = props => {
 };
 
 const styles = StyleSheet.create({
+  articleDescription: {
+    height: "25%"
+  },
+  articleHeader: {
+    height: "75%"
+  },
   articleItem: {
     height: 100,
     width: "100%",
@@ -43,7 +51,7 @@ const styles = StyleSheet.create({
   articleRow: {
     flexDirection: "row"
   },
-  titleText: {
+  text: {
     color: "white",
     fontFamily: "rough-typewriter"
   }

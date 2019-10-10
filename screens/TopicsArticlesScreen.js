@@ -15,7 +15,11 @@ import ArticleListItem from "../components/ArticleListItem";
 const TopicsArticlesScreen = props => {
   const renderArticleItem = itemData => {
     return (
-      <ArticleListItem title={itemData.item.title} onTargetArticle={() => {}} />
+      <ArticleListItem
+        title={itemData.item.title}
+        author={itemData.item.author}
+        onTargetArticle={() => {}}
+      />
     );
   };
 

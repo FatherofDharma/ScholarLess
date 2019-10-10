@@ -1,7 +1,7 @@
 class Topic {
-  constructor(id, topic, color) {
+  constructor(id, topicName, color) {
     this.id = id;
-    this.topicName = topic;
+    this.topicName = topicName;
     this.color = color;
   }
 }

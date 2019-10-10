@@ -4,17 +4,20 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  TouchableOpacity
+  ImageBackground
 } from "react-native";
 
 import { TOPICS } from "../data/fake-data";
+import TopicGridComponent from "../components/TopicGridComponent";
+import Colors from "../constants/Colors";
 
 const TopicsScreen = props => {
   const renderTopicGridItem = itemData => {
     return (
-      <TouchableOpacity
-        style={styles.topicGridItem}
-        onPress={() => {
+      <TopicGridComponent
+        topicName={itemData.item.topicName}
+        color={itemData.item.color}
+        onTarget={() => {
           props.navigation.navigate({
             routeName: "TopicsArticles",
             params: {
@@ -22,20 +25,22 @@ const TopicsScreen = props => {
             }
           });
         }}
-      >
-        <View>
-          <Text style={styles.textTest}>{itemData.item.topicName}</Text>
-        </View>
-      </TouchableOpacity>
+      />
     );
   };
+
   return (
-    <FlatList
-      data={TOPICS}
-      keyExtractor={(item, index) => item.id}
-      renderItem={renderTopicGridItem}
-      numColumns={2}
-    />
+    <ImageBackground
+      source={require("../assets/old-writing-background.jpg")}
+      style={{ width: "100%", height: "100%" }}
+    >
+      <FlatList
+        data={TOPICS}
+        keyExtractor={(item, index) => item.id}
+        renderItem={renderTopicGridItem}
+        numColumns={2}
+      />
+    </ImageBackground>
   );
 };
 
@@ -49,14 +54,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  textTest: {
-    fontFamily: "rough-typewriter",
-    fontSize: 20
-  },
-  topicGridItem: {
-    flex: 1,
-    margin: 15,
-    height: 150
+  listBackground: {
+    backgroundColor: Colors.backgroundColor
   }
 });
 

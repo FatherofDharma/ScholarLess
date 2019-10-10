@@ -30,15 +30,15 @@ export default function App() {
   return <TopicNavigator />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  textTest: {
-    fontFamily: "rough-typewriter-itl-bold",
-    fontSize: 20
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center"
+//   },
+//   textTest: {
+//     fontFamily: "rough-typewriter-itl-bold",
+//     fontSize: 20
+//   }
+// });

@@ -20,10 +20,7 @@ const TopicNavigator = createStackNavigator(
       screen: TopicsArticlesScreen
     },
     Article: {
-      screen: ArticleScreen,
-      navigationOptions: {
-        title: "Article"
-      }
+      screen: ArticleScreen
     },
     PDF: {
       screen: PDFScreen,
@@ -46,7 +43,7 @@ const TopicNavigator = createStackNavigator(
       headerTitleStyle: {
         fontFamily: "rough-typewriter-itl-bold",
         fontWeight: "200",
-        fontSize: 40,
+        fontSize: 20,
         alignContent: "center"
       }
     }

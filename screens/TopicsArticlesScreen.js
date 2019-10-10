@@ -18,7 +18,16 @@ const TopicsArticlesScreen = props => {
       <ArticleListItem
         title={itemData.item.title}
         author={itemData.item.author}
-        onTargetArticle={() => {}}
+        journal={itemData.item.journal}
+        publishDate={itemData.item.publishDate}
+        onTargetArticle={() => {
+          props.navigation.navigate({
+            routeName: "Article",
+            params: {
+              articleId: itemData.item.id
+            }
+          });
+        }}
       />
     );
   };

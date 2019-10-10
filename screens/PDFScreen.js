@@ -1,12 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 
 import Colors from "../constants/Colors";
 
 const PDFScreen = props => {
   return (
     <View style={styles.screen}>
-      <Text style={styles.textPDF}>The Pdf Screen</Text>
+      <Image
+        source={require("../assets/pdf-example.jpeg")}
+        style={styles.image}
+      />
     </View>
   );
 };
@@ -23,6 +26,10 @@ const styles = StyleSheet.create({
     fontFamily: "rough-typewriter-itl-bold",
     fontSize: 35,
     color: "white"
+  },
+  image: {
+    width: "100%",
+    height: "100%"
   }
 });
 

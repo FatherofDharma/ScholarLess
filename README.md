@@ -1,6 +1,6 @@
 # _ScholarLess_
 
-The independent capstone project for the coding school, Epicodus, written on on September 20th.
+The independent capstone project for the coding school, Epicodus, started on September 20th.
 
 #### By **_Daniel Hongel_**
 
